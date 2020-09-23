@@ -8,13 +8,14 @@ RUN apk update && \
 
 # Create a group and user and disable user login
 RUN addgroup -g 1000 -S jboss && adduser -u 1000 -S jboss -G jboss -D -s /sbin/nologin jboss && \
+    mkdir -p /opt/jboss && \
     chmod 755 /opt/jboss
 
 # Set the working directory to jboss' user home directory
 WORKDIR /opt/jboss
 
 # Switch to jboss user
-USER jboss
+#USER jboss
 
 # END equivalent of https://github.com/jboss-dockerfiles/base/blob/master/Dockerfile
 
