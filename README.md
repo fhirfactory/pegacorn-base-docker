@@ -1,2 +1,2 @@
-# pegacorn-base-docker
-Base docker image
+# pegacorn-base-docker-java
+Base docker image for java
