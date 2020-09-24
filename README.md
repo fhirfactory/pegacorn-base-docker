@@ -1,2 +1,2 @@
 # pegacorn-base-docker-java
-Base docker image for java runnning on Alpine
+Base docker image for java running on Alpine
