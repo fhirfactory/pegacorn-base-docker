@@ -1,8 +1,8 @@
 FROM alpine:3.12
 
 # Update the operating system
-RUN apk update && \
-    apk upgrade --no-cache
+#RUN apk update && \
+#    apk upgrade --no-cache
 
 # START equivalent of https://github.com/jboss-dockerfiles/base/blob/master/Dockerfile
 
