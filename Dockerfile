@@ -1,8 +1,10 @@
-FROM alpine:3.13
+FROM alpine:3.15
 
-# Update the operating system
-#RUN apk update && \
-#    apk upgrade --no-cache
+# Install TimeZone package
+RUN apk add --no-cache tzdata \
+    && rm -rf /var/cache/apk/*
+
+ENV TZ="Australia/Sydney"
 
 # START equivalent of https://github.com/jboss-dockerfiles/base/blob/master/Dockerfile
 
