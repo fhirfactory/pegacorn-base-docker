@@ -36,7 +36,7 @@ RUN apk add --no-cache openjdk11
 ENV PATH=$PATH:${JAVA_HOME}/bin
 
 # Add bash [Proxy prevents this operation]
-RUN apk add --no-cache bash
+RUN apk update && apk upgrade -U -a
 
 # Switch to jboss user
 USER jboss
