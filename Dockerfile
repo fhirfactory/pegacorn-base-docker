@@ -1,7 +1,7 @@
 FROM alpine:3.15
 
 # Install TimeZone package
-RUN apk add --no-cache tzdata \
+RUN apk add --no-cache tzdata \ 
     && rm -rf /var/cache/apk/*
 
 ENV TZ="Australia/Sydney"
@@ -36,6 +36,9 @@ RUN apk add --no-cache openjdk11
 ENV PATH=$PATH:${JAVA_HOME}/bin
 
 # Add bash [Proxy prevents this operation]
+RUN apk add --no-cache bash
+
+# Upgrade Alpine to patch for vulnerabilities
 RUN apk update && apk upgrade -U -a
 
 # Switch to jboss user
