@@ -1,8 +1,10 @@
-FROM alpine:3.13
+FROM alpine:3.15
 
-# Update the operating system
-#RUN apk update && \
-#    apk upgrade --no-cache
+# Install TimeZone package
+RUN apk add --no-cache tzdata \ 
+    && rm -rf /var/cache/apk/*
+
+ENV TZ="Australia/Sydney"
 
 # START equivalent of https://github.com/jboss-dockerfiles/base/blob/master/Dockerfile
 
@@ -35,6 +37,9 @@ ENV PATH=$PATH:${JAVA_HOME}/bin
 
 # Add bash [Proxy prevents this operation]
 RUN apk add --no-cache bash
+
+# Upgrade Alpine to patch for vulnerabilities
+RUN apk update && apk upgrade -U -a
 
 # Switch to jboss user
 USER jboss
